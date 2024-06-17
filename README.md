@@ -6,9 +6,9 @@ This is a simple Express.js application that leverages the OpenAI GPT-3.5 Turbo 
 
 ## Features
 
-User Prompts: Users can input custom prompts to interact with the GPT-3.5 Turbo model.
-Streaming Response Handling: The application streams responses from the OpenAI API and processes them efficiently.
-Bootstrap CSS Integration: The application uses Bootstrap CSS for a clean and responsive user interface.
+**User Prompts:** Users can input custom prompts to interact with the GPT-3.5 Turbo model.
+**Streaming Response Handling:** The application streams responses from the OpenAI API and processes them efficiently.
+**Bootstrap CSS Integration:** The application uses Bootstrap CSS for a clean and responsive user interface.
 
 ## Installation
 
