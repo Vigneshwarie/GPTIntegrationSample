@@ -3,7 +3,7 @@ document.getElementById('promptForm').addEventListener('submit', async (e) => {
 
      const prompt = document.getElementById('prompt').value;
      const responseText = document.getElementById('responseText');
-     responseText.textContent = 'Loading...';
+     responseText.innerHTML = 'Loading...';
 
      try {
           const response = await fetch('/generate', {
@@ -14,9 +14,15 @@ document.getElementById('promptForm').addEventListener('submit', async (e) => {
                body: JSON.stringify({ prompt: prompt }),
           });
 
-          const data = await response.json();
-          responseText.textContent = data.text;
+          if (!response.ok) {
+               const errorMessage = await response.json();
+               console.error('Error:', errorMessage.error);
+               return;
+          }
+
+          const responseData = await response.text();
+          responseText.innerHTML = responseData;
      } catch (error) {
-          responseText.textContent = 'An error occurred while generating the response.';
+          responseText.innerHTML = 'An error occurred while generating the response.';
      }
 });
