@@ -14,7 +14,6 @@ app.use(express.static('client/public'));
 
 app.post('/generate', async (req, res) => {
      const prompt = req.body.prompt;
-     console.log(prompt);
      try {
           const contentChunks = [];
           const response = await openai.chat.completions.create({

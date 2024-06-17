@@ -3,6 +3,7 @@
 <head>
      <title>ChatGPT Integration</title>
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
      <nav class="navbar navbar-expand-lg navbar-primary bg-primary">
@@ -12,10 +13,9 @@
      </nav>
      <div class="container-fluid">
           <form id="promptForm">
-               <div class="container">
+               <div class="container frmcontainer">
                     <div class="mb-3">
-                         <label class="form-label">Enter your prompt</label>
-                         <textarea class="form-control" id="prompt" name="prompt" placeholder="Prompt here" rows="4" cols="30"></textarea>
+                         <textarea class="form-control" id="prompt" name="prompt" placeholder="Enter your prompt here" rows="4" cols="30"></textarea>
                     </div>
                     <div class="mb-3">
                          <button class="btn btn-primary mb-3" type="submit">Generate</button>
@@ -24,12 +24,12 @@
           </form>
      </div>
      <div class="container-fluid">
-          <div class="container" id="response">
+          <div class="container" id="response" style="display: none;">
                <h5>Response</h5>
                <p id="responseText"></p>
           </div>
      </div>
-<script src="./app.js"></script>
+<script src="./js/app.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

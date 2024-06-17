@@ -3,6 +3,7 @@ document.getElementById('promptForm').addEventListener('submit', async (e) => {
 
      const prompt = document.getElementById('prompt').value;
      const responseText = document.getElementById('responseText');
+     document.getElementById('response').style.display = 'block';
      responseText.innerHTML = 'Loading...';
 
      try {
