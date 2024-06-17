@@ -6,7 +6,7 @@ require('dotenv').config();
 const app = express();
 const port = 3000;
 
-const openai = new OpenAI({apiKey: process.env.OPENAI_API_KEY,});
+const openai = new OpenAI({apiKey: process.env.OPENAI_API_KEY});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -16,6 +16,7 @@ app.post('/generate', async (req, res) => {
      const prompt = req.body.prompt;
      console.log(prompt);
      try {
+          const contentChunks = [];
           const response = await openai.chat.completions.create({
                model: "gpt-3.5-turbo",
                messages: [{ role: "user", content: prompt }],
@@ -28,21 +29,21 @@ app.post('/generate', async (req, res) => {
           });
 
           res.setHeader('Content-Type', 'text/plain');
-          console.log(1234);
-          console.log("response ===",response);
 
           if (typeof response[Symbol.asyncIterator] !== 'function') {
                throw new Error('Response is not iterable');
           }
 
-        // Iterate over the async iterable
           for await (const chunk of response) {
                const content = chunk.choices[0]?.delta?.content || "";
+               console.log(content);
                if (content) {
-                    res.write(content);
+                    contentChunks.push(content);
                }
           }
 
+          const finalContent = contentChunks.join(' ');
+          res.status(200).send(finalContent);
           res.end();
      } catch (error) {
           console.error(error);
