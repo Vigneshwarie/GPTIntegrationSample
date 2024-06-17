@@ -36,13 +36,12 @@ app.post('/generate', async (req, res) => {
 
           for await (const chunk of response) {
                const content = chunk.choices[0]?.delta?.content || "";
-               console.log(content);
                if (content) {
                     contentChunks.push(content);
                }
           }
 
-          const finalContent = contentChunks.join(' ');
+          const finalContent = contentChunks.join('').replace(/\s+([,.?!;:])/g, '$1');
           res.status(200).send(finalContent);
           res.end();
      } catch (error) {
