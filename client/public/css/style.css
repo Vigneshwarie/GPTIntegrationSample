@@ -18,7 +18,7 @@ div.container.frmcontainer{
 .chat-window {
      display: none;
      position: fixed;
-     bottom: 80px;
+     bottom: 100px;
      right: 20px;
      width: 350px;
      height: 500px;
@@ -33,6 +33,7 @@ div.container.frmcontainer{
      color: white;
      padding: 10px;
      display: flex;
+     font-weight: bold;
      justify-content: space-between;
      align-items: center;
 }
@@ -59,4 +60,15 @@ div.container.frmcontainer{
      height: 50px;
      border-radius: 50%;
      margin-right: 10px;
+}
+
+.user-message {
+     color: #007bff;
+     padding: 10px;
+     font-weight: bold;
+}
+
+.gpt-message {
+     color: #333;
+     padding: 10px;
 }
