@@ -9,10 +9,11 @@ div.container.frmcontainer{
 }
 
 .chat-logo {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    cursor: pointer;
+     position: fixed;
+     bottom: 20px;
+     right: 20px;
+     cursor: pointer;
+     z-index: 1500;
 }
 
 .chat-window {
@@ -69,6 +70,7 @@ div.container.frmcontainer{
 }
 
 .gpt-message {
-     color: #333;
+     color: #3b3b3b;
      padding: 10px;
 }
+
